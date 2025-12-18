@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>多彩日 - 技术支持</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #000000; /* 纯黑色文字 */
+            background-color: transparent; /* 透明背景 */
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: transparent; /* 容器透明 */
+        }
+        /* 新增：标题区icon样式 */
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .icon-logo {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 15px;
+            object-fit: contain;
+            display: block;
+        }
+        h1 {
+            font-size: 24px;
+            text-align: center;
+            color: #000000;
+            font-weight: 600;
+            margin: 0;
+        }
+        h2 {
+            font-size: 20px;
+            margin: 25px 0 15px;
+            color: #000000;
+            font-weight: 500;
+        }
+        h3 {
+            font-size: 18px;
+            margin: 20px 0 10px;
+            color: #000000;
+            font-weight: 500;
+        }
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+            color: #000000;
+        }
+        ul {
+            margin: 10px 0 20px 20px;
+        }
+        li {
+            margin-bottom: 8px;
+            color: #000000;
+        }
+        .contact {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #000000; /* 黑色分割线 */
+        }
+        .faq-item {
+            margin: 15px 0;
+        }
+        .faq-question {
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+        /* 新增：5行功能介绍布局样式 */
+        .feature-section {
+            margin: 20px 0;
+        }
+        .feature-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 30px 0;
+            gap: 15px;
+            flex-wrap: wrap; /* 移动端自动换行 */
+        }
+        /* 左右侧图片/视频容器 */
+        .feature-media {
+            width: 20%;
+            min-width: 80px;
+            flex-shrink: 0;
+        }
+        .feature-media img,
+        .feature-media video {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            display: block;
+        }
+        /* 中间文字区域 */
+        .feature-content {
+            width: 50%;
+            flex-grow: 1;
+        }
+        /* 顶部标题描述（靠左侧） */
+        .content-top {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        /* 底部标题描述（靠右侧） */
+        .content-bottom {
+            text-align: right;
+        }
+        .feature-title {
+            font-weight: 500;
+            font-size: 17px;
+            margin-bottom: 5px;
+        }
+        .feature-desc {
+            font-size: 14px;
+            color: #333;
+            line-height: 1.6;
+        }
+        /* 移动端适配 */
+        @media (max-width: 600px) {
+            .feature-row {
+                flex-direction: column;
+                text-align: center;
+            }
+            .feature-media {
+                width: 40%;
+            }
+            .feature-content {
+                width: 100%;
+            }
+            .content-top, .content-bottom {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 新增：带icon的标题区 -->
+        <div class="header">
+            <!-- 替换为你GitHub仓库中的icon路径 -->
+            <img src="AppIcon.png" alt="多彩日图标" class="icon-logo">
+            <h1>多彩日 App 技术支持</h1>
+        </div>
+        
+        <p>欢迎使用「多彩日」App！本页面为您提供核心功能使用帮助、问题反馈渠道，若您在使用过程中遇到任何问题，可通过以下方式联系我们。</p>
+        
+        <h2>一、核心功能使用帮助</h2>
+        <div class="feature-section">
+            <div class="feature-row">
+                <div class="feature-media">
+                    <video autoplay muted playsinline loop preload="auto">
+                        <source src="AnyDayDialog.mp4" type="video/mp4">
+                        您的浏览器不支持视频播放
+                    </video>
+                </div>
+                <div class="feature-content">
+                    <div class="content-top">
+                        <div class="feature-title">查看</div>
+                        <div class="feature-desc">触摸多彩日，快速查看。</div>
+                        <div class="feature-desc">手指抬起，做更多操作。</div>
+                    </div>
+                    <div class="content-bottom">
+                        <div class="feature-title">编辑</div>
+                        <div class="feature-desc">一个手指向下滑动两边空白，快速编辑今天。</div>
+                        <div class="feature-desc">一个手指向上滑动两边空白，快速编辑昨天。</div>
+                    </div>
+                </div>
+                <div class="feature-media">
+                    <video autoplay muted playsinline loop preload="auto">
+                        <source src="Edit.mp4" type="video/mp4">
+                        您的浏览器不支持视频播放
+                    </video>
+                </div>
+            </div>
+            <div class="feature-row">
+                <div class="feature-media">
+                    <video autoplay muted playsinline loop preload="auto">
+                        <source src="Settings.mp4" type="video/mp4">
+                        您的浏览器不支持视频播放
+                    </video>
+                </div>
+                <div class="feature-content">
+                    <div class="content-top">
+                        <div class="feature-title">设置</div>
+                        <div class="feature-desc">两个手指向上滑动，进入设置。</div>
+                    </div>
+                    <div class="content-bottom">
+                        <div class="feature-title">统计</div>
+                        <div class="feature-desc">两个手指捏合，统计多彩日。</div>
+                    </div>
+                </div>
+                <div class="feature-media">
+                    <video autoplay muted playsinline loop preload="auto">
+                        <source src="Statistic.mp4" type="video/mp4">
+                        您的浏览器不支持视频播放
+                    </video>
+                </div>
+            </div>
+            <div class="feature-row">
+                <div class="feature-media">
+                    <video autoplay muted playsinline loop preload="auto">
+                        <source src="Settings.mp4" type="video/mp4">
+                        您的浏览器不支持视频播放
+                    </video>
+                </div>
+                <div class="feature-content">
+                    <div class="content-top">
+                        <div class="feature-title">设置</div>
+                        <div class="feature-desc">两个手指向上滑动，进入设置。</div>
+                    </div>
+                    <div class="content-bottom">
+                        <div class="feature-title">统计</div>
+                        <div class="feature-desc">两个手指捏合，统计多彩日。</div>
+                    </div>
+                </div>
+                <div class="feature-media">
+                    <video autoplay muted playsinline loop preload="auto">
+                        <source src="Statistic.mp4" type="video/mp4">
+                        您的浏览器不支持视频播放
+                    </video>
+                </div>
+            </div>
+            <div class="feature-row">
+                <div class="feature-media">
+                    <video autoplay muted playsinline loop preload="auto">
+                        <source src="Chocolate.mp4" type="video/mp4">
+                        您的浏览器不支持视频播放
+                    </video>
+                </div>
+                <div class="feature-content">
+                    <div class="content-top">
+                        <div class="feature-title">回忆</div>
+                        <div class="feature-desc">两个手指张开，回忆多彩日。</div>
+                        <div class="feature-desc">您可以随机地回忆那些多彩的日子。</div>
+                    </div>
+                    <div class="content-bottom">
+                        <div class="feature-title">筛选</div>
+                        <div class="feature-desc">一个手指长按两边空白，筛选多彩日。</div>
+                    </div>
+                </div>
+                <div class="feature-media">
+                    <video autoplay muted playsinline loop preload="auto">
+                        <source src="Filter.mp4" type="video/mp4">
+                        您的浏览器不支持视频播放
+                    </video>
+                </div>
+            </div>
+            <div class="feature-row">
+                <div class="feature-media">
+                    <video autoplay muted playsinline loop preload="auto">
+                        <source src="Share.mp4" type="video/mp4">
+                        您的浏览器不支持视频播放
+                    </video>
+                </div>
+                <div class="feature-content">
+                    <div class="content-top">
+                        <div class="feature-title">分享</div>
+                        <div class="feature-desc">两个手指长按两边空白，分享多彩日。</div>
+                    </div>
+                    <div class="content-bottom">
+                        <div class="feature-title">搜索</div>
+                        <div class="feature-desc">两个手指向下滑动，搜索多彩日。</div>
+                    </div>
+                </div>
+                <div class="feature-media">
+                    <video autoplay muted playsinline loop preload="auto">
+                        <source src="Search.mp4" type="video/mp4">
+                        您的浏览器不支持视频播放
+                    </video>
+                </div>
+            </div>
+            <div class="feature-row">
+                <div class="feature-media">
+                    <video autoplay muted playsinline loop preload="auto">
+                        <source src="ChangeYear.mp4" type="video/mp4">
+                        您的浏览器不支持视频播放
+                    </video>
+                </div>
+                <div class="feature-content">
+                    <div class="content-top">
+                        <div class="feature-title">流年</div>
+                        <div class="feature-desc">两个手指左右滑动，切换年份。</div>
+                    </div>
+                    <div class="content-bottom">
+                        <div class="feature-title">照片墙</div>
+                        <div class="feature-desc">摇一摇您的手机，就变成了照片墙。</div>
+                        <div class="feature-desc">您可以接着用两个手指张开，回忆这些珍贵的瞬间。</div>
+                    </div>
+                </div>
+                <div class="feature-media">
+                    <video autoplay muted playsinline loop preload="auto">
+                        <source src="Shake.mp4" type="video/mp4">
+                        您的浏览器不支持视频播放
+                    </video>
+                </div>
+            </div>
+        </div>
+        
+        <h2>二、问题反馈渠道</h2>
+        <ul>
+            <li>官方邮箱：daysinyear@foxmail.com（工作日24小时内回复）；</li>
+            <li>App内反馈：打开「多彩日」-「我的」-「意见反馈」，提交问题描述及截图；</li>
+            <li>版本更新：关注App Store「多彩日」版本更新，我们会持续修复已知问题并优化功能。</li>
+        </ul>
+        
+        <div class="contact">
+            <h2>三、联系我们</h2>
+            <p>若您的问题未在上述内容中解决，可通过以下方式获取一对一技术支持：</p>
+            <ul>
+                <li>技术支持邮箱：daysinyear@foxmail.com</li>
+                <li>服务时间：周一至周日 9:00-22:00（法定节假日除外）</li>
+                <li>App版本支持：iOS 15.0及以上版本</li>
+            </ul>
+            <p style="margin-top: 15px;">感谢您使用「多彩日」，我们会持续优化产品体验，为您提供更优质的服务！</p>
+        </div>
+    </div>
+</body>
+</html>
