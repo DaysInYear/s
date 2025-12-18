@@ -14,17 +14,16 @@
             font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", Arial, sans-serif;
             font-size: 16px;
             line-height: 1.8;
-            color: #000000; /* 纯黑色文字 */
-            background-color: transparent; /* 透明背景 */
+            color: #000000;
+            background-color: transparent;
             padding: 20px;
         }
         .container {
             max-width: 800px;
             margin: 0 auto;
             padding: 30px;
-            background-color: transparent; /* 容器透明 */
+            background-color: transparent;
         }
-        /* 新增：标题区icon样式 */
         .header {
             text-align: center;
             margin-bottom: 30px;
@@ -70,7 +69,7 @@
         .contact {
             margin-top: 40px;
             padding-top: 20px;
-            border-top: 1px solid #000000; /* 黑色分割线 */
+            border-top: 1px solid #000000;
         }
         .faq-item {
             margin: 15px 0;
@@ -79,21 +78,22 @@
             font-weight: 500;
             margin-bottom: 5px;
         }
-        /* 新增：5行功能介绍布局样式 */
+        /* 功能介绍布局样式 */
         .feature-section {
             margin: 20px 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* 桌面端一行2个单元 */
+            gap: 30px; /* 单元间距 */
         }
-        .feature-row {
+        /* 每个视频+文案单元 */
+        .feature-item {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            margin: 30px 0;
-            gap: 15px;
-            flex-wrap: wrap; /* 移动端自动换行 */
+            gap: 15px; /* 视频和文案间距 */
         }
-        /* 左右侧图片/视频容器 */
+        /* 视频容器 */
         .feature-media {
-            width: 20%;
+            width: 30%;
             min-width: 80px;
             flex-shrink: 0;
         }
@@ -104,19 +104,9 @@
             border-radius: 8px;
             display: block;
         }
-        /* 中间文字区域 */
-        .feature-content {
-            width: 50%;
-            flex-grow: 1;
-        }
-        /* 顶部标题描述（靠左侧） */
-        .content-top {
-            margin-bottom: 15px;
-            text-align: left;
-        }
-        /* 底部标题描述（靠右侧） */
-        .content-bottom {
-            text-align: right;
+        /* 文案容器 */
+        .feature-text {
+            width: 70%;
         }
         .feature-title {
             font-weight: 500;
@@ -127,30 +117,31 @@
             font-size: 14px;
             color: #333;
             line-height: 1.6;
+            margin-bottom: 4px;
         }
         /* 移动端适配 */
         @media (max-width: 600px) {
-            .feature-row {
-                flex-direction: column;
-                text-align: center;
+            .feature-section {
+                grid-template-columns: 1fr; /* 移动端一行1个单元 */
+                gap: 20px;
+            }
+            .feature-item {
+                flex-direction: row; /* 视频+文案横向排列 */
+                text-align: left;
             }
             .feature-media {
-                width: 40%;
+                width: 25%; /* 移动端视频占比调整 */
+                min-width: 60px;
             }
-            .feature-content {
-                width: 100%;
-            }
-            .content-top, .content-bottom {
-                text-align: center;
+            .feature-text {
+                width: 75%; /* 移动端文案占比调整 */
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- 新增：带icon的标题区 -->
         <div class="header">
-            <!-- 替换为你GitHub仓库中的icon路径 -->
             <img src="AppIcon.png" alt="多彩日图标" class="icon-logo">
             <h1>多彩日 App 技术支持</h1>
         </div>
@@ -159,152 +150,163 @@
         
         <h2>一、核心功能使用帮助</h2>
         <div class="feature-section">
-            <div class="feature-row">
+            <!-- 第1组拆分 -->
+            <div class="feature-item">
                 <div class="feature-media">
                     <video autoplay muted playsinline loop preload="auto">
                         <source src="AnyDayDialog.mp4" type="video/mp4">
                         您的浏览器不支持视频播放
                     </video>
                 </div>
-                <div class="feature-content">
-                    <div class="content-top">
-                        <div class="feature-title">查看</div>
-                        <div class="feature-desc">触摸多彩日，快速查看。</div>
-                        <div class="feature-desc">手指抬起，做更多操作。</div>
-                    </div>
-                    <div class="content-bottom">
-                        <div class="feature-title">编辑</div>
-                        <div class="feature-desc">一个手指向下滑动两边空白，快速编辑今天。</div>
-                        <div class="feature-desc">一个手指向上滑动两边空白，快速编辑昨天。</div>
-                    </div>
+                <div class="feature-text">
+                    <div class="feature-title">查看</div>
+                    <div class="feature-desc">触摸多彩日，快速查看。</div>
+                    <div class="feature-desc">手指抬起，做更多操作。</div>
                 </div>
+            </div>
+            <div class="feature-item">
                 <div class="feature-media">
                     <video autoplay muted playsinline loop preload="auto">
                         <source src="Edit.mp4" type="video/mp4">
                         您的浏览器不支持视频播放
                     </video>
                 </div>
+                <div class="feature-text">
+                    <div class="feature-title">编辑</div>
+                    <div class="feature-desc">一个手指向下滑动两边空白，快速编辑今天。</div>
+                    <div class="feature-desc">一个手指向上滑动两边空白，快速编辑昨天。</div>
+                </div>
             </div>
-            <div class="feature-row">
+
+            <!-- 第2组拆分 -->
+            <div class="feature-item">
                 <div class="feature-media">
                     <video autoplay muted playsinline loop preload="auto">
                         <source src="Settings.mp4" type="video/mp4">
                         您的浏览器不支持视频播放
                     </video>
                 </div>
-                <div class="feature-content">
-                    <div class="content-top">
-                        <div class="feature-title">设置</div>
-                        <div class="feature-desc">两个手指向上滑动，进入设置。</div>
-                    </div>
-                    <div class="content-bottom">
-                        <div class="feature-title">统计</div>
-                        <div class="feature-desc">两个手指捏合，统计多彩日。</div>
-                    </div>
+                <div class="feature-text">
+                    <div class="feature-title">设置</div>
+                    <div class="feature-desc">两个手指向上滑动，进入设置。</div>
                 </div>
+            </div>
+            <div class="feature-item">
                 <div class="feature-media">
                     <video autoplay muted playsinline loop preload="auto">
                         <source src="Statistic.mp4" type="video/mp4">
                         您的浏览器不支持视频播放
                     </video>
                 </div>
+                <div class="feature-text">
+                    <div class="feature-title">统计</div>
+                    <div class="feature-desc">两个手指捏合，统计多彩日。</div>
+                </div>
             </div>
-            <div class="feature-row">
+
+            <!-- 第3组拆分 -->
+            <div class="feature-item">
                 <div class="feature-media">
                     <video autoplay muted playsinline loop preload="auto">
                         <source src="Settings.mp4" type="video/mp4">
                         您的浏览器不支持视频播放
                     </video>
                 </div>
-                <div class="feature-content">
-                    <div class="content-top">
-                        <div class="feature-title">设置</div>
-                        <div class="feature-desc">两个手指向上滑动，进入设置。</div>
-                    </div>
-                    <div class="content-bottom">
-                        <div class="feature-title">统计</div>
-                        <div class="feature-desc">两个手指捏合，统计多彩日。</div>
-                    </div>
+                <div class="feature-text">
+                    <div class="feature-title">设置</div>
+                    <div class="feature-desc">两个手指向上滑动，进入设置。</div>
                 </div>
+            </div>
+            <div class="feature-item">
                 <div class="feature-media">
                     <video autoplay muted playsinline loop preload="auto">
                         <source src="Statistic.mp4" type="video/mp4">
                         您的浏览器不支持视频播放
                     </video>
                 </div>
+                <div class="feature-text">
+                    <div class="feature-title">统计</div>
+                    <div class="feature-desc">两个手指捏合，统计多彩日。</div>
+                </div>
             </div>
-            <div class="feature-row">
+
+            <!-- 第4组拆分 -->
+            <div class="feature-item">
                 <div class="feature-media">
                     <video autoplay muted playsinline loop preload="auto">
                         <source src="Chocolate.mp4" type="video/mp4">
                         您的浏览器不支持视频播放
                     </video>
                 </div>
-                <div class="feature-content">
-                    <div class="content-top">
-                        <div class="feature-title">回忆</div>
-                        <div class="feature-desc">两个手指张开，回忆多彩日。</div>
-                        <div class="feature-desc">您可以随机地回忆那些多彩的日子。</div>
-                    </div>
-                    <div class="content-bottom">
-                        <div class="feature-title">筛选</div>
-                        <div class="feature-desc">一个手指长按两边空白，筛选多彩日。</div>
-                    </div>
+                <div class="feature-text">
+                    <div class="feature-title">回忆</div>
+                    <div class="feature-desc">两个手指张开，回忆多彩日。</div>
+                    <div class="feature-desc">您可以随机地回忆那些多彩的日子。</div>
                 </div>
+            </div>
+            <div class="feature-item">
                 <div class="feature-media">
                     <video autoplay muted playsinline loop preload="auto">
                         <source src="Filter.mp4" type="video/mp4">
                         您的浏览器不支持视频播放
                     </video>
                 </div>
+                <div class="feature-text">
+                    <div class="feature-title">筛选</div>
+                    <div class="feature-desc">一个手指长按两边空白，筛选多彩日。</div>
+                </div>
             </div>
-            <div class="feature-row">
+
+            <!-- 第5组拆分 -->
+            <div class="feature-item">
                 <div class="feature-media">
                     <video autoplay muted playsinline loop preload="auto">
                         <source src="Share.mp4" type="video/mp4">
                         您的浏览器不支持视频播放
                     </video>
                 </div>
-                <div class="feature-content">
-                    <div class="content-top">
-                        <div class="feature-title">分享</div>
-                        <div class="feature-desc">两个手指长按两边空白，分享多彩日。</div>
-                    </div>
-                    <div class="content-bottom">
-                        <div class="feature-title">搜索</div>
-                        <div class="feature-desc">两个手指向下滑动，搜索多彩日。</div>
-                    </div>
+                <div class="feature-text">
+                    <div class="feature-title">分享</div>
+                    <div class="feature-desc">两个手指长按两边空白，分享多彩日。</div>
                 </div>
+            </div>
+            <div class="feature-item">
                 <div class="feature-media">
                     <video autoplay muted playsinline loop preload="auto">
                         <source src="Search.mp4" type="video/mp4">
                         您的浏览器不支持视频播放
                     </video>
                 </div>
+                <div class="feature-text">
+                    <div class="feature-title">搜索</div>
+                    <div class="feature-desc">两个手指向下滑动，搜索多彩日。</div>
+                </div>
             </div>
-            <div class="feature-row">
+
+            <!-- 第6组拆分 -->
+            <div class="feature-item">
                 <div class="feature-media">
                     <video autoplay muted playsinline loop preload="auto">
                         <source src="ChangeYear.mp4" type="video/mp4">
                         您的浏览器不支持视频播放
                     </video>
                 </div>
-                <div class="feature-content">
-                    <div class="content-top">
-                        <div class="feature-title">流年</div>
-                        <div class="feature-desc">两个手指左右滑动，切换年份。</div>
-                    </div>
-                    <div class="content-bottom">
-                        <div class="feature-title">照片墙</div>
-                        <div class="feature-desc">摇一摇您的手机，就变成了照片墙。</div>
-                        <div class="feature-desc">您可以接着用两个手指张开，回忆这些珍贵的瞬间。</div>
-                    </div>
+                <div class="feature-text">
+                    <div class="feature-title">流年</div>
+                    <div class="feature-desc">两个手指左右滑动，切换年份。</div>
                 </div>
+            </div>
+            <div class="feature-item">
                 <div class="feature-media">
                     <video autoplay muted playsinline loop preload="auto">
                         <source src="Shake.mp4" type="video/mp4">
                         您的浏览器不支持视频播放
                     </video>
+                </div>
+                <div class="feature-text">
+                    <div class="feature-title">照片墙</div>
+                    <div class="feature-desc">摇一摇您的手机，就变成了照片墙。</div>
+                    <div class="feature-desc">您可以接着用两个手指张开，回忆这些珍贵的瞬间。</div>
                 </div>
             </div>
         </div>
